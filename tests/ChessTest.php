@@ -1,5 +1,6 @@
 <?php
 
+use AlbertMorenoDEV\KataChess\Chessboard;
 use PHPUnit\Framework\TestCase;
 
 final class ChessTest extends TestCase
@@ -14,12 +15,12 @@ final class ChessTest extends TestCase
     /** @test */
     public function mustBeOneChessboard()
     {
-        $this->assertTrue(true);
+        $this->assertInstanceOf(Chessboard::class, $this->chessboard);
     }
 
     /** @test */
     public function mustBeTwoPlayers()
     {
-        $this->assertTrue(true);
+        // ToDo
     }
 }
