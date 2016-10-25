@@ -1,5 +1,6 @@
 # Kata-Chess
 
+
 - Must be two players.
 - Must be one chessboard.
 - The chessboard have 64 squares, eight by eight grid.
