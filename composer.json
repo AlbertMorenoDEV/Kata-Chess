@@ -1,0 +1,15 @@
+{
+    "name": "AlbertMorenoDEV/kata-chess",
+    "description": "Kata Chess",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Albert Moreno",
+            "email": "albert.moreno.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^5.6"
+    }
+}
