@@ -1,12 +1,12 @@
 # Kata-Chess
 
 
-- [ ] Must be one chessboard.
-- [ ] The chessboard have 64 squares, eight by eight grid.
-- [ ] Columns starts from left with a to h.
-- [ ] Rows starts from bottom with 1 to 8.
+- [x] Must be one chessboard.
+- [x] The chessboard have 64 squares, eight by eight grid.
+- [x] Columns starts from left with a to h.
+- [x] Rows starts from bottom with 1 to 8.
 - [ ] There are sixteen white pieces and sixteen black pieces.
-- [ ] Must be two players.
+- [x] Must be two players.
 - [ ] Each player have sixteen pieces.
 - [ ] There are by player:
     - [ ] One king
