@@ -1,7 +1,7 @@
 <?php
-namespace AlbertMorenoDEV\KataChess\Pieces;
+namespace AlbertMorenoDEV\KataChess\Pieces\Colors;
 
-class Black
+class Black implements iColor
 {
 
 }
