@@ -100,12 +100,14 @@ final class ChessTest extends TestCase
     {
         $kingTotal = 0;
         $queenTotal = 0;
-        $rooksTotal = 0;
-        $knightsTotal = 0;
-        $bishopsTotal = 0;
+        $rookTotal = 0;
+        $knightTotal = 0;
+        $bishopTotal = 0;
         $pawnTotal = 0;
 
-        $this->game->getChessboard()->walkAllSquares(function (iSquare $square) use (&$playerATotal, &$playerBTotal) {
+        $this->game->getChessboard()->walkAllSquares(function (iSquare $square) use (
+            &$kingTotal, &$queenTotal, &$rookTotal, &$knigthTotal, &$bishopTotal, &$pawnTotal
+        ) {
             if ($square->isSet()) {
                 if ($square->getPiece()->getPlayer() === $this->playerA) {
                     if ($square->getPiece() instanceof King) {
