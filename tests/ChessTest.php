@@ -3,8 +3,14 @@
 use AlbertMorenoDEV\KataChess\Chessboard;
 use AlbertMorenoDEV\KataChess\Game;
 use AlbertMorenoDEV\KataChess\iSquare;
+use AlbertMorenoDEV\KataChess\Pieces\Bishop;
 use AlbertMorenoDEV\KataChess\Pieces\Colors\Black;
 use AlbertMorenoDEV\KataChess\Pieces\Colors\White;
+use AlbertMorenoDEV\KataChess\Pieces\King;
+use AlbertMorenoDEV\KataChess\Pieces\Knight;
+use AlbertMorenoDEV\KataChess\Pieces\Pawn;
+use AlbertMorenoDEV\KataChess\Pieces\Queen;
+use AlbertMorenoDEV\KataChess\Pieces\Rook;
 use AlbertMorenoDEV\KataChess\Player;
 use PHPUnit\Framework\TestCase;
 
@@ -87,5 +93,48 @@ final class ChessTest extends TestCase
 
         $this->assertEquals(16, $playerATotal);
         $this->assertEquals(16, $playerBTotal);
+    }
+
+    /** @test */
+    public function checkPiecesType()
+    {
+        $kingTotal = 0;
+        $queenTotal = 0;
+        $rooksTotal = 0;
+        $knightsTotal = 0;
+        $bishopsTotal = 0;
+        $pawnTotal = 0;
+
+        $this->game->getChessboard()->walkAllSquares(function (iSquare $square) use (&$playerATotal, &$playerBTotal) {
+            if ($square->isSet()) {
+                if ($square->getPiece()->getPlayer() === $this->playerA) {
+                    if ($square->getPiece() instanceof King) {
+                        $kingTotal++;
+                    }
+                    if ($square->getPiece() instanceof Queen) {
+                        $queenTotal++;
+                    }
+                    if ($square->getPiece() instanceof Rook) {
+                        $rookTotal++;
+                    }
+                    if ($square->getPiece() instanceof Knight) {
+                        $knigthTotal++;
+                    }
+                    if ($square->getPiece() instanceof Bishop) {
+                        $bishopTotal++;
+                    }
+                    if ($square->getPiece() instanceof Pawn) {
+                        $pawnTotal++;
+                    }
+                }
+            }
+        });
+
+        $this->assertEquals(1, $kingTotal);
+        $this->assertEquals(1, $queenTotal);
+        $this->assertEquals(2, $rookTotal);
+        $this->assertEquals(2, $knightTotal);
+        $this->assertEquals(2, $bishopTotal);
+        $this->assertEquals(8, $pawnTotal);
     }
 }
