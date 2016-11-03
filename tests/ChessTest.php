@@ -13,9 +13,17 @@ final class ChessTest extends TestCase
     /** @var $game Game */
     private $game;
 
+    /** @var $playerA Player */
+    private $playerA;
+
+    /** @var $playerB Player */
+    private $playerB;
+
     protected function setUp()
     {
-        $this->game = new Game(new Chessboard(), new Player('A', new White()), new Player('B', new Black()));
+        $this->playerA = new Player('A', new White());
+        $this->playerB = new Player('B', new Black());
+        $this->game = new Game(new Chessboard(), $this->playerA, $this->playerB);
     }
 
     /** @test */
@@ -59,5 +67,25 @@ final class ChessTest extends TestCase
 
         $this->assertEquals(16, $whiteTotal);
         $this->assertEquals(16, $blackTotal);
+    }
+
+    /** @test */
+    public function eachPlayerMustHaveSixteenPieces()
+    {
+        $playerATotal = 0;
+        $playerBTotal = 0;
+
+        $this->game->getChessboard()->walkAllSquares(function (iSquare $square) use (&$playerATotal, &$playerBTotal) {
+            if ($square->isSet()) {
+                if ($square->getPiece()->getPlayer() === $this->playerA) {
+                    $playerATotal++;
+                } elseif ($square->getPiece()->getPlayer() === $this->playerB) {
+                    $playerBTotal++;
+                }
+            }
+        });
+
+        $this->assertEquals(16, $playerATotal);
+        $this->assertEquals(16, $playerBTotal);
     }
 }

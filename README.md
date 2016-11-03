@@ -7,7 +7,7 @@
 - [x] Rows starts from bottom with 1 to 8.
 - [x] There are sixteen white pieces and sixteen black pieces.
 - [x] Must be two players.
-- [ ] Each player have sixteen pieces.
+- [x] Each player have sixteen pieces.
 - [ ] There are by player:
     - [ ] One king
     - [ ] One queen
