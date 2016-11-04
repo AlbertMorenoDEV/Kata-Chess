@@ -1,6 +1,8 @@
 <?php
 namespace AlbertMorenoDEV\KataChess\ValueObjects;
 
+use AlbertMorenoDEV\KataChess\Exceptions\InvalidPosition;
+
 class Position
 {
     private $x;
@@ -8,6 +10,8 @@ class Position
 
     public function __construct($x, $y)
     {
+        $this->validate($x, $y);
+
         $this->x = $x;
         $this->y = $y;
     }
@@ -20,5 +24,12 @@ class Position
     public function getY()
     {
         return $this->y;
+    }
+
+    private function validate($x, $y)
+    {
+        if ($x < 'a' || $x > 'h' || $y < '1' || $y > '8') {
+            throw InvalidPosition::isOutOfLimits();
+        }
     }
 }
