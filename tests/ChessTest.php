@@ -106,37 +106,32 @@ final class ChessTest extends TestCase
         $pawnTotal = 0;
 
         $this->game->getChessboard()->walkAllSquares(function (iSquare $square) use (
-            &$kingTotal, &$queenTotal, &$rookTotal, &$knigthTotal, &$bishopTotal, &$pawnTotal
+            &$kingTotal, &$queenTotal, &$rookTotal, &$knightTotal, &$bishopTotal, &$pawnTotal
         ) {
             if ($square->isSet()) {
                 if ($square->getPiece()->getPlayer() === $this->playerA) {
                     if ($square->getPiece() instanceof King) {
                         $kingTotal++;
-                    }
-                    if ($square->getPiece() instanceof Queen) {
+                    } elseif ($square->getPiece() instanceof Queen) {
                         $queenTotal++;
-                    }
-                    if ($square->getPiece() instanceof Rook) {
+                    } elseif ($square->getPiece() instanceof Rook) {
                         $rookTotal++;
-                    }
-                    if ($square->getPiece() instanceof Knight) {
-                        $knigthTotal++;
-                    }
-                    if ($square->getPiece() instanceof Bishop) {
+                    } elseif ($square->getPiece() instanceof Knight) {
+                        $knightTotal++;
+                    } elseif ($square->getPiece() instanceof Bishop) {
                         $bishopTotal++;
-                    }
-                    if ($square->getPiece() instanceof Pawn) {
+                    } elseif ($square->getPiece() instanceof Pawn) {
                         $pawnTotal++;
                     }
                 }
             }
         });
 
-        $this->assertEquals(1, $kingTotal);
-        $this->assertEquals(1, $queenTotal);
-        $this->assertEquals(2, $rookTotal);
-        $this->assertEquals(2, $knightTotal);
-        $this->assertEquals(2, $bishopTotal);
-        $this->assertEquals(8, $pawnTotal);
+        $this->assertEquals(1, $kingTotal, 'Must be one king for player A.');
+        $this->assertEquals(1, $queenTotal, 'Must be one queen for player A.');
+        $this->assertEquals(2, $rookTotal, 'Must be two rooks for player A.');
+        $this->assertEquals(2, $knightTotal, 'Must be two knights for player A.');
+        $this->assertEquals(2, $bishopTotal, 'Must be two bishops for player A.');
+        $this->assertEquals(8, $pawnTotal, 'Must be eight pawns for player A.');
     }
 }
