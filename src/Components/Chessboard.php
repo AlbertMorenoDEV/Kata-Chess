@@ -2,6 +2,7 @@
 namespace AlbertMorenoDEV\KataChess\Components;
 
 use AlbertMorenoDEV\KataChess\Components\Pieces\iPiece;
+use AlbertMorenoDEV\KataChess\ValueObjects\Position;
 
 class Chessboard implements iChessboard
 {
@@ -51,5 +52,10 @@ class Chessboard implements iChessboard
             }
             $this->squares[$x][$y] = new Square($x, $y);
         });
+    }
+
+    public function isEmpty(Position $position) : bool
+    {
+        return $this->getSquare($position->getX(), $position->getY())->isEmpty();
     }
 }
