@@ -7,4 +7,5 @@ interface iSquare
 {
     public function setPiece(iPiece $piece);
     public function getPiece(): iPiece;
+    public function isEmpty(): bool;
 }
