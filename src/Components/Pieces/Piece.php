@@ -2,7 +2,6 @@
 namespace AlbertMorenoDEV\KataChess\Components\Pieces;
 
 use AlbertMorenoDEV\KataChess\Components\iPlayer;
-use AlbertMorenoDEV\KataChess\Components\Pieces\iPiece;
 
 abstract class Piece implements iPiece
 {

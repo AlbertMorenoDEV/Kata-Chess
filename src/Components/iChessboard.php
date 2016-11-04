@@ -1,5 +1,5 @@
 <?php
-namespace AlbertMorenoDEV\KataChess;
+namespace AlbertMorenoDEV\KataChess\Components;
 
 use AlbertMorenoDEV\KataChess\Components\Pieces\iPiece;
 

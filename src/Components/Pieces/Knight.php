@@ -1,8 +1,5 @@
 <?php
-namespace AlbertMorenoDEV\KataChess\Pieces;
-
-use AlbertMorenoDEV\KataChess\Components\Pieces\iPiece;
-use AlbertMorenoDEV\KataChess\Components\Pieces\Piece;
+namespace AlbertMorenoDEV\KataChess\Components\Pieces;
 
 class Knight extends Piece implements iPiece
 {

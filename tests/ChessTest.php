@@ -1,17 +1,17 @@
 <?php
 
-use AlbertMorenoDEV\KataChess\Chessboard;
+use AlbertMorenoDEV\KataChess\Components\Chessboard;
 use AlbertMorenoDEV\KataChess\Game;
 use AlbertMorenoDEV\KataChess\Components\iSquare;
 use AlbertMorenoDEV\KataChess\Components\Pieces\Bishop;
 use AlbertMorenoDEV\KataChess\Components\Pieces\Colors\Black;
 use AlbertMorenoDEV\KataChess\Components\Pieces\Colors\White;
 use AlbertMorenoDEV\KataChess\Components\Pieces\King;
-use AlbertMorenoDEV\KataChess\Pieces\Knight;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Knight;
 use AlbertMorenoDEV\KataChess\Components\Pieces\Pawn;
 use AlbertMorenoDEV\KataChess\Components\Pieces\Queen;
 use AlbertMorenoDEV\KataChess\Components\Pieces\Rook;
-use AlbertMorenoDEV\KataChess\Player;
+use AlbertMorenoDEV\KataChess\Components\Player;
 use PHPUnit\Framework\TestCase;
 
 final class ChessTest extends TestCase
@@ -160,5 +160,12 @@ final class ChessTest extends TestCase
         $this->assertEquals(2, $knightTotalB, 'Must be two knights for player B.');
         $this->assertEquals(2, $bishopTotalB, 'Must be two bishops for player B.');
         $this->assertEquals(8, $pawnTotalB, 'Must be eight pawns for player B.');
+    }
+
+    /** @test */
+    public function kingsMove()
+    {
+        //$movePiece = new MovePiece();
+        //$this->game->getChessboard()->getSquare('e', '1')->getPiece()->moveTo('e', '2');
     }
 }
