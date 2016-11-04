@@ -1,6 +1,8 @@
 <?php
 
+use AlbertMorenoDEV\KataChess\Actions\MovePiece;
 use AlbertMorenoDEV\KataChess\Components\Chessboard;
+use AlbertMorenoDEV\KataChess\Exceptions\MovementNotAllowed;
 use AlbertMorenoDEV\KataChess\Game;
 use AlbertMorenoDEV\KataChess\Components\iSquare;
 use AlbertMorenoDEV\KataChess\Components\Pieces\Bishop;
@@ -12,6 +14,7 @@ use AlbertMorenoDEV\KataChess\Components\Pieces\Pawn;
 use AlbertMorenoDEV\KataChess\Components\Pieces\Queen;
 use AlbertMorenoDEV\KataChess\Components\Pieces\Rook;
 use AlbertMorenoDEV\KataChess\Components\Player;
+use AlbertMorenoDEV\KataChess\ValueObjects\Position;
 use PHPUnit\Framework\TestCase;
 
 final class ChessTest extends TestCase
@@ -62,7 +65,7 @@ final class ChessTest extends TestCase
         $blackTotal = 0;
 
         $this->game->getChessboard()->walkAllSquares(function (iSquare $square) use (&$whiteTotal, &$blackTotal) {
-            if ($square->isSet()) {
+            if (!$square->isEmpty()) {
                 if ($square->getPiece()->getPlayer()->getColor() instanceof White) {
                     $whiteTotal++;
                 } elseif ($square->getPiece()->getPlayer()->getColor() instanceof Black) {
@@ -82,7 +85,7 @@ final class ChessTest extends TestCase
         $playerBTotal = 0;
 
         $this->game->getChessboard()->walkAllSquares(function (iSquare $square) use (&$playerATotal, &$playerBTotal) {
-            if ($square->isSet()) {
+            if (!$square->isEmpty()) {
                 if ($square->getPiece()->getPlayer() === $this->playerA) {
                     $playerATotal++;
                 } elseif ($square->getPiece()->getPlayer() === $this->playerB) {
@@ -115,7 +118,7 @@ final class ChessTest extends TestCase
             &$kingTotalA, &$queenTotalA, &$rookTotalA, &$knightTotalA, &$bishopTotalA, &$pawnTotalA,
             &$kingTotalB, &$queenTotalB, &$rookTotalB, &$knightTotalB, &$bishopTotalB, &$pawnTotalB
         ) {
-            if ($square->isSet()) {
+            if (!$square->isEmpty()) {
                 if ($square->getPiece()->getPlayer() === $this->playerA) {
                     if ($square->getPiece() instanceof King) {
                         $kingTotalA++;
@@ -163,9 +166,28 @@ final class ChessTest extends TestCase
     }
 
     /** @test */
-    public function kingsMove()
+    public function kingsMoveOverOnePawn()
     {
-        //$movePiece = new MovePiece();
-        //$this->game->getChessboard()->getSquare('e', '1')->getPiece()->moveTo('e', '2');
+        try {
+            $this->game->movePiece(new Position('e', '1'), new Position('e', '2'));
+            $this->fail('Expected movement not allowed not thrown');
+        } catch (MovementNotAllowed $e) {
+            $this->assertEquals('The square is not empty.', $e->getMessage());
+        }
+    }
+
+    /** @test */
+    public function pawnFirstMove()
+    {
+        $originPosition = new Position('e', '2');
+        $destinyPosition = new Position('e', '4');
+
+        $this->assertFalse($this->game->getChessboard()->isEmpty($originPosition));
+        $this->assertTrue($this->game->getChessboard()->isEmpty($destinyPosition));
+
+        $this->game->movePiece($originPosition, $destinyPosition);
+
+        $this->assertTrue($this->game->getChessboard()->isEmpty($originPosition));
+        $this->assertFalse($this->game->getChessboard()->isEmpty($destinyPosition));
     }
 }
