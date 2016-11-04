@@ -8,13 +8,13 @@
 - [x] There are sixteen white pieces and sixteen black pieces.
 - [x] Must be two players.
 - [x] Each player have sixteen pieces.
-- [ ] There are by player:
-    - [ ] One king
-    - [ ] One queen
-    - [ ] Two rooks
-    - [ ] Two knights
-    - [ ] Two bishops
-    - [ ] Eight pawns
+- [x] There are by player:
+    - [x] One king
+    - [x] One queen
+    - [x] Two rooks
+    - [x] Two knights
+    - [x] Two bishops
+    - [x] Eight pawns
 - [ ] Each chess piece has its own style of moving:
     - [ ] The king moves one square in any direction. The king has also a special move which is called castling and involves also moving a rook.
     - [ ] The rook can move any number of squares along any rank or file, but may not leap over other pieces. Along with the king, the rook is involved during the king's castling move.
