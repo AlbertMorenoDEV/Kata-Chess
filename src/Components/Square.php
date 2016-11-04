@@ -33,4 +33,9 @@ class Square implements iSquare
     {
         return (!isset($this->piece));
     }
+
+    public function empty()
+    {
+        unset($this->piece);
+    }
 }

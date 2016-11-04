@@ -13,17 +13,27 @@ class Chessboard implements iChessboard
         $this->initialize();
     }
 
-    public function getSquares() : array
+    public function getSquares(): array
     {
         return $this->squares;
     }
 
-    public function setPieceOnSquare($x, $y, iPiece $piece)
+    public function setPieceOnSquare(Position $position, iPiece $piece)
     {
-        $this->getSquare($x, $y)->setPiece($piece);
+        $this->getSquare($position->getX(), $position->getY())->setPiece($piece);
     }
 
-    public function getSquare($x, $y) : iSquare
+    public function emptySquare(Position $position)
+    {
+        $this->getSquare($position->getX(), $position->getY())->empty();
+    }
+
+    public function getPiece(Position $position): iPiece
+    {
+        return $this->getSquare($position->getX(), $position->getY())->getPiece();
+    }
+
+    public function getSquare($x, $y): iSquare
     {
         return $this->squares[$x][$y];
     }
@@ -54,7 +64,7 @@ class Chessboard implements iChessboard
         });
     }
 
-    public function isEmpty(Position $position) : bool
+    public function isEmpty(Position $position): bool
     {
         return $this->getSquare($position->getX(), $position->getY())->isEmpty();
     }

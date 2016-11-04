@@ -7,6 +7,6 @@ use AlbertMorenoDEV\KataChess\ValueObjects\Position;
 interface iChessboard
 {
     public function getSquares() : array;
-    public function setPieceOnSquare($x, $y, iPiece $piece);
+    public function setPieceOnSquare(Position $position, iPiece $piece);
     public function isEmpty(Position $position) : bool;
 }
