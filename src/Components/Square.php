@@ -1,7 +1,8 @@
 <?php
 namespace AlbertMorenoDEV\KataChess;
 
-use AlbertMorenoDEV\KataChess\Pieces\iPiece;
+use AlbertMorenoDEV\KataChess\Components\iSquare;
+use AlbertMorenoDEV\KataChess\Components\Pieces\iPiece;
 
 class Square implements iSquare
 {

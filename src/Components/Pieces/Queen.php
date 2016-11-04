@@ -1,5 +1,5 @@
 <?php
-namespace AlbertMorenoDEV\KataChess\Pieces;
+namespace AlbertMorenoDEV\KataChess\Components\Pieces;
 
 class Queen extends Piece implements iPiece
 {

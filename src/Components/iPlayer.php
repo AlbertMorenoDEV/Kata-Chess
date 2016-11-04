@@ -1,7 +1,7 @@
 <?php
-namespace AlbertMorenoDEV\KataChess;
+namespace AlbertMorenoDEV\KataChess\Components;
 
-use AlbertMorenoDEV\KataChess\Pieces\Colors\iColor;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Colors\iColor;
 
 interface iPlayer
 {

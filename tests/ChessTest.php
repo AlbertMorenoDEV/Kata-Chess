@@ -2,15 +2,15 @@
 
 use AlbertMorenoDEV\KataChess\Chessboard;
 use AlbertMorenoDEV\KataChess\Game;
-use AlbertMorenoDEV\KataChess\iSquare;
-use AlbertMorenoDEV\KataChess\Pieces\Bishop;
-use AlbertMorenoDEV\KataChess\Pieces\Colors\Black;
-use AlbertMorenoDEV\KataChess\Pieces\Colors\White;
-use AlbertMorenoDEV\KataChess\Pieces\King;
+use AlbertMorenoDEV\KataChess\Components\iSquare;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Bishop;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Colors\Black;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Colors\White;
+use AlbertMorenoDEV\KataChess\Components\Pieces\King;
 use AlbertMorenoDEV\KataChess\Pieces\Knight;
-use AlbertMorenoDEV\KataChess\Pieces\Pawn;
-use AlbertMorenoDEV\KataChess\Pieces\Queen;
-use AlbertMorenoDEV\KataChess\Pieces\Rook;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Pawn;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Queen;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Rook;
 use AlbertMorenoDEV\KataChess\Player;
 use PHPUnit\Framework\TestCase;
 

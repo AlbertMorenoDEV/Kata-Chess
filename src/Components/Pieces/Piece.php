@@ -1,9 +1,10 @@
 <?php
-namespace AlbertMorenoDEV\KataChess\Pieces;
+namespace AlbertMorenoDEV\KataChess\Components\Pieces;
 
-use AlbertMorenoDEV\KataChess\iPlayer;
+use AlbertMorenoDEV\KataChess\Components\iPlayer;
+use AlbertMorenoDEV\KataChess\Components\Pieces\iPiece;
 
-abstract class Piece
+abstract class Piece implements iPiece
 {
     private $player;
 

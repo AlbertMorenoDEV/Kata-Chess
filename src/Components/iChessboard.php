@@ -1,7 +1,7 @@
 <?php
 namespace AlbertMorenoDEV\KataChess;
 
-use AlbertMorenoDEV\KataChess\Pieces\iPiece;
+use AlbertMorenoDEV\KataChess\Components\Pieces\iPiece;
 
 interface iChessboard
 {

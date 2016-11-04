@@ -1,12 +1,13 @@
 <?php
 namespace AlbertMorenoDEV\KataChess;
 
-use AlbertMorenoDEV\KataChess\Pieces\Bishop;
-use AlbertMorenoDEV\KataChess\Pieces\King;
+use AlbertMorenoDEV\KataChess\Components\iPlayer;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Bishop;
+use AlbertMorenoDEV\KataChess\Components\Pieces\King;
 use AlbertMorenoDEV\KataChess\Pieces\Knight;
-use AlbertMorenoDEV\KataChess\Pieces\Pawn;
-use AlbertMorenoDEV\KataChess\Pieces\Queen;
-use AlbertMorenoDEV\KataChess\Pieces\Rook;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Pawn;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Queen;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Rook;
 
 class Game
 {

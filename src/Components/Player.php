@@ -1,7 +1,8 @@
 <?php
 namespace AlbertMorenoDEV\KataChess;
 
-use AlbertMorenoDEV\KataChess\Pieces\Colors\iColor;
+use AlbertMorenoDEV\KataChess\Components\iPlayer;
+use AlbertMorenoDEV\KataChess\Components\Pieces\Colors\iColor;
 
 class Player implements iPlayer
 {
