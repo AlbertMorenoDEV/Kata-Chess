@@ -24,13 +24,13 @@ class Square implements iSquare
         $this->piece = $piece;
     }
 
-    public function isSet(): bool
-    {
-        return (isset($this->piece));
-    }
-
     public function getPiece(): iPiece
     {
         return $this->piece;
+    }
+
+    public function isEmpty(): bool
+    {
+        return (!isset($this->piece));
     }
 }
