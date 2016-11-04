@@ -175,4 +175,19 @@ final class ChessTest extends TestCase
             $this->assertEquals('The square is not empty.', $e->getMessage());
         }
     }
+
+    /** @test */
+    public function pawnFirstMove()
+    {
+        $originPosition = new Position('e', '2');
+        $destinyPosition = new Position('e', '4');
+
+        $this->assertFalse($this->game->getChessboard()->isEmpty($originPosition));
+        $this->assertTrue($this->game->getChessboard()->isEmpty($destinyPosition));
+
+        $this->game->movePiece($originPosition, $destinyPosition);
+
+        $this->assertTrue($this->game->getChessboard()->isEmpty($originPosition));
+        $this->assertFalse($this->game->getChessboard()->isEmpty($destinyPosition));
+    }
 }
